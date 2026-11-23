@@ -1,1 +1,0 @@
-# Festa-del-Tallero---Gemona-del-Friuli
