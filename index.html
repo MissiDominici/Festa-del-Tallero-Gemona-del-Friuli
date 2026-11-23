@@ -1,0 +1,1775 @@
+<!doctype html>
+<html lang="it" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Festa del Tallero • Gemona del Friuli | Rievocazione Storica</title>
+    <meta
+      name="description"
+      content="Scopri il programma, le taverne medievali, la mappa del centro storico e la storia della Festa del Tallero di Gemona del Friuli."
+    />
+
+    <!-- Google Fonts: Cinzel per l'eleganza storica, Plus Jakarta Sans per la massima leggibilità su mobile -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Lucide Icons per icone pulite e leggere -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Configurazione Palette Colori e Font Personalizzati -->
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              crimson: {
+                DEFAULT: "#8B1E24",
+                dark: "#631318",
+                light: "#A82830",
+              },
+              gold: {
+                DEFAULT: "#C59B27",
+                light: "#DFB94C",
+                dark: "#9E7918",
+              },
+              parchment: {
+                DEFAULT: "#FAF7F2",
+                dark: "#F0EAE0",
+              },
+              charcoal: {
+                DEFAULT: "#1A1A1E",
+                muted: "#4A4A52",
+              },
+            },
+            fontFamily: {
+              serif: ["Cinzel", "serif"],
+              sans: ["Plus Jakarta Sans", "sans-serif"],
+            },
+          },
+        },
+      };
+    </script>
+
+    <style>
+      /* Stili personalizzati per rifiniture visive */
+      body {
+        background-color: #faf7f2;
+        color: #1a1a1e;
+      }
+
+      /* Effetto pergamena leggera e texture sottile */
+      .hero-pattern {
+        background-color: #1a1a1e;
+        background-image:
+          radial-gradient(
+            circle at 20% 30%,
+            rgba(139, 30, 36, 0.78) 0%,
+            rgba(26, 26, 30, 0.92) 70%
+          ),
+          url("https://siviaggia.it/wp-content/uploads/sites/2/2026/01/Gemona-del-Friuli-Fiuli-Venezia-Giulia.jpg");
+        background-size: cover;
+        background-position: center;
+      }
+
+      /* Animazione marker mappa */
+      @keyframes pulse-ring {
+        0% {
+          transform: scale(0.85);
+          opacity: 0.8;
+        }
+        70% {
+          transform: scale(1.4);
+          opacity: 0;
+        }
+        100% {
+          transform: scale(0.85);
+          opacity: 0;
+        }
+      }
+      .marker-pulse {
+        transform-origin: center;
+        transform-box: fill-box;
+        animation: pulse-ring 2s infinite;
+      }
+
+      /* Nascondi scrollbar orizzontale nei filtri mobile mantenendo lo scroll */
+      .no-scrollbar::-webkit-scrollbar {
+        display: none;
+      }
+      .no-scrollbar {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+    </style>
+  </head>
+  <body class="font-sans antialiased selection:bg-crimson selection:text-white">
+    <!-- =====================================================================
+         1. NAVBAR FISSA IN ALTO (STICKY HEADER)
+         ===================================================================== -->
+    <header
+      class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-parchment-dark shadow-sm transition-all"
+    >
+      <div class="max-w-6xl mx-auto px-4 sm:px-6">
+        <div class="flex justify-between items-center h-16 sm:h-20">
+          <!-- Logo / Titolo Evento -->
+          <a href="#" class="flex items-center gap-3 group">
+            <!-- Emblema SVG del Tallero -->
+            <div
+              class="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-crimson flex items-center justify-center border-2 border-gold shadow-sm group-hover:scale-105 transition-transform"
+            >
+              <svg
+                class="w-6 h-6 text-gold"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+              >
+                <circle cx="12" cy="12" r="9" />
+                <circle cx="12" cy="12" r="6" stroke-dasharray="2 2" />
+                <path d="M12 7v10M9 10h6" />
+              </svg>
+            </div>
+            <div>
+              <span
+                class="block font-serif font-bold text-base sm:text-lg tracking-wider text-charcoal leading-none"
+              >
+                FESTA DEL TALLERO
+              </span>
+              <span
+                class="block text-[11px] sm:text-xs font-semibold tracking-widest uppercase text-crimson mt-0.5"
+              >
+                Gemona del Friuli
+              </span>
+            </div>
+          </a>
+
+          <!-- Menu Desktop -->
+          <nav class="hidden md:flex items-center gap-7">
+            <a
+              href="#"
+              class="text-sm font-semibold text-charcoal-muted hover:text-crimson transition-colors"
+              >Home</a
+            >
+            <a
+              href="#programma"
+              class="text-sm font-semibold text-charcoal-muted hover:text-crimson transition-colors"
+              >Programma eventi</a
+            >
+            <a
+              href="#taverne-mappa"
+              class="text-sm font-semibold text-charcoal-muted hover:text-crimson transition-colors"
+              >Taverne & Mappa</a
+            >
+            <a
+              href="#storia"
+              class="text-sm font-semibold text-charcoal-muted hover:text-crimson transition-colors"
+              >La Storia</a
+            >
+            <a
+              href="#info-utili"
+              class="text-sm font-semibold text-charcoal-muted hover:text-crimson transition-colors"
+              >Info Utili</a
+            >
+          </nav>
+
+          <!-- Bottone Hamburger Mobile -->
+          <button
+            id="mobile-menu-btn"
+            type="button"
+            aria-label="Apri o chiudi menu"
+            class="md:hidden p-2 rounded-xl text-charcoal hover:bg-parchment focus:outline-none transition-colors"
+          >
+            <div class="relative w-6 h-6">
+              <!-- Icona Hamburger -->
+              <svg
+                id="icon-hamburger"
+                class="w-6 h-6 absolute inset-0 transition-all duration-450 ease-in-out opacity-100 rotate-0 scale-100"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M4 6h16M4 12h16M4 18h16"
+                />
+              </svg>
+
+              <!-- Icona X -->
+              <svg
+                id="icon-close"
+                class="w-6 h-6 absolute inset-0 text-crimson transition-all duration-450 ease-in-out opacity-0 -rotate-90 scale-75 pointer-events-none"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              </svg>
+            </div>
+          </button>
+        </div>
+      </div>
+
+      <!-- Menu Tendina Mobile -->
+      <div
+        id="mobile-menu"
+        class="hidden md:hidden bg-white border-t border-parchment-dark px-4 pt-3 pb-6 space-y-2 shadow-lg"
+      >
+        <a
+          href="#"
+          class="mobile-link block px-4 py-3 rounded-xl text-base font-semibold text-charcoal hover:bg-parchment hover:text-crimson"
+        >
+          <!--🏠-->
+          Home
+        </a>
+        <a
+          href="#programma"
+          class="mobile-link block px-4 py-3 rounded-xl text-base font-semibold text-charcoal hover:bg-parchment hover:text-crimson"
+        >
+          <!--📜-->
+          Programma dell'Evento
+        </a>
+        <a
+          href="#taverne-mappa"
+          class="mobile-link block px-4 py-3 rounded-xl text-base font-semibold text-charcoal hover:bg-parchment hover:text-crimson"
+        >
+          <!--🗺️-->
+          Taverne & Mappa Interattiva
+        </a>
+        <a
+          href="#storia"
+          class="mobile-link block px-4 py-3 rounded-xl text-base font-semibold text-charcoal hover:bg-parchment hover:text-crimson"
+        >
+          <!--🏰-->
+          La Storia del Tallero
+        </a>
+        <a
+          href="#info-utili"
+          class="mobile-link block px-4 py-3 rounded-xl text-base font-semibold text-charcoal hover:bg-parchment hover:text-crimson"
+        >
+          <!--📍-->
+          Info Utili & Parcheggi
+        </a>
+      </div>
+    </header>
+
+    <!-- =====================================================================
+         2. HERO SECTION D'IMPATTO
+         ===================================================================== -->
+    <section class="hero-pattern relative text-white overflow-hidden">
+      <!-- Fregio decorativo superiore -->
+      <div
+        class="h-1.5 w-full bg-gradient-to-r from-crimson via-gold to-crimson"
+      ></div>
+
+      <div
+        class="max-w-6xl mx-auto px-4 sm:px-6 pt-14 pb-16 sm:pt-24 sm:pb-24 relative z-10"
+      >
+        <div class="max-w-3xl">
+          <!-- Badge Luogo e Tipologia -->
+          <div
+            class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 border border-gold/40 backdrop-blur-sm mb-6"
+          >
+            <span class="w-2 h-2 rounded-full bg-gold"></span>
+            <span
+              class="text-xs sm:text-sm font-semibold tracking-wide text-gold-light uppercase"
+            >
+              Gemona del Friuli (UD) • Rievocazione Storica
+            </span>
+          </div>
+
+          <!-- Titolo Principale -->
+          <h1
+            class="font-serif text-4xl sm:text-6xl font-extrabold tracking-tight leading-tight text-white mb-5"
+          >
+            La Festa del <span class="text-gold">Tallero</span>
+          </h1>
+
+          <!-- Sottotitolo Evocativo -->
+          <p
+            class="text-base sm:text-xl text-gray-200 leading-relaxed mb-8 max-w-2xl font-normal"
+          >
+            Nel cuore antico di Gemona rivivono i fasti medievali e
+            rinascimentali: il corteo in costume, la solenne consegna del
+            Tallero d'argento al Capitano del Popolo, i giullari, i musici e le
+            taverne dei borghi.
+          </p>
+
+          <!-- Call To Action (CTA) -->
+          <div class="flex flex-col sm:flex-row gap-3.5 sm:gap-4 mb-12">
+            <a
+              href="#programma"
+              class="inline-flex items-center justify-center gap-2 px-7 py-4 rounded-xl bg-gold hover:bg-gold-light text-charcoal font-bold text-base transition-all shadow-lg"
+            >
+              <i data-lucide="calendar" class="w-5 h-5"></i>
+              Scopri il Programma
+            </a>
+            <a
+              href="#taverne-mappa"
+              class="inline-flex items-center justify-center gap-2 px-7 py-4 rounded-xl bg-white/10 hover:bg-white/20 text-white border border-white/30 font-semibold text-base backdrop-blur-sm transition-all"
+            >
+              <i data-lucide="map-pin" class="w-5 h-5 text-gold"></i>
+              Mappa & Taverne
+            </a>
+          </div>
+        </div>
+
+        <!-- Box Informativo Rapido (MODIFICA QUI LE DATE DELL'EDIZIONE) -->
+        <div
+          class="grid grid-cols-1 sm:grid-cols-3 gap-4 bg-white/10 backdrop-blur-md border border-white/15 rounded-2xl p-5 sm:p-6"
+        >
+          <div class="flex items-start gap-3.5">
+            <div class="p-2.5 rounded-xl bg-gold/20 text-gold shrink-0">
+              <i data-lucide="calendar-days" class="w-6 h-6"></i>
+            </div>
+            <div>
+              <span
+                class="block text-xs uppercase tracking-wider text-gray-300 font-semibold"
+                >Date Edizione</span
+              >
+              <span
+                id="event-dates"
+                class="block text-base sm:text-lg font-bold text-white mt-0.5"
+                >05-06 gennaio 2027</span
+              >
+              <span class="block text-xs text-gold-light mt-0.5"
+                >Due giorni di festa nel borgo</span
+              >
+            </div>
+          </div>
+
+          <div
+            class="flex items-start gap-3.5 border-t sm:border-t-0 sm:border-l border-white/15 pt-4 sm:pt-0 sm:pl-6"
+          >
+            <div class="p-2.5 rounded-xl bg-gold/20 text-gold shrink-0">
+              <i data-lucide="landmark" class="w-6 h-6"></i>
+            </div>
+            <div>
+              <span
+                class="block text-xs uppercase tracking-wider text-gray-300 font-semibold"
+                >Luogo</span
+              >
+              <span
+                class="block text-base sm:text-lg font-bold text-white mt-0.5"
+                >Centro Storico</span
+              >
+              <span class="block text-xs text-gray-300 mt-0.5"
+                >Via Bini, Piazza del Ferro, Duomo</span
+              >
+            </div>
+          </div>
+
+          <div
+            class="flex items-start gap-3.5 border-t sm:border-t-0 sm:border-l border-white/15 pt-4 sm:pt-0 sm:pl-6"
+          >
+            <div class="p-2.5 rounded-xl bg-gold/20 text-gold shrink-0">
+              <i data-lucide="ticket" class="w-6 h-6"></i>
+            </div>
+            <div>
+              <span
+                class="block text-xs uppercase tracking-wider text-gray-300 font-semibold"
+                >Accesso</span
+              >
+              <span
+                class="block text-base sm:text-lg font-bold text-white mt-0.5"
+                >Ingresso Libero</span
+              >
+              <span class="block text-xs text-gray-300 mt-0.5"
+                >Aperto a famiglie e visitatori</span
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         3. SEZIONE PROGRAMMA INTERATTIVO
+         ===================================================================== -->
+    <section id="programma" class="py-16 sm:py-24 scroll-mt-16">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6">
+        <!-- Intestazione Sezione -->
+        <div class="text-center max-w-2xl mx-auto mb-10">
+          <span class="text-xs font-bold tracking-widest uppercase text-crimson"
+            >Calendario della Rievocazione</span
+          >
+          <h2
+            class="font-serif text-3xl sm:text-4xl font-bold text-charcoal mt-2"
+          >
+            Programma degli Eventi
+          </h2>
+          <p class="text-charcoal-muted mt-3 text-sm sm:text-base">
+            Seleziona la giornata e filtra per tipologia di appuntamento per
+            organizzare la tua visita a Gemona.
+          </p>
+        </div>
+
+        <!-- Tab Selettore Giornate -->
+        <div
+          class="flex flex-col sm:flex-row justify-center gap-2.5 sm:gap-3 mb-6"
+          role="tablist"
+        >
+          <button
+            onclick="selectDay('sabato')"
+            id="tab-sabato"
+            class="day-tab px-5 py-3.5 rounded-xl font-bold text-sm sm:text-base transition-all bg-white text-charcoal border border-parchment-dark hover:border-crimson/40"
+          >
+            Sabato • Giochi & Spettacoli
+          </button>
+          <button
+            onclick="selectDay('domenica')"
+            id="tab-domenica"
+            class="day-tab px-5 py-3.5 rounded-xl font-bold text-sm sm:text-base transition-all bg-white text-charcoal border border-parchment-dark hover:border-crimson/40"
+          >
+            Domenica • Grande Corteo & Tallero
+          </button>
+        </div>
+
+        <!-- Filtri Rapidi per Categoria (scroll orizzontale comodo su mobile) -->
+        <div
+          class="flex items-center justify-start sm:justify-center gap-2 overflow-x-auto no-scrollbar pb-3 mb-8"
+        >
+          <button
+            onclick="selectCategory('tutti')"
+            data-cat="tutti"
+            class="cat-btn shrink-0 px-4 py-2 rounded-full text-xs sm:text-sm font-semibold bg-charcoal text-white transition-all"
+          >
+            Tutti gli eventi
+          </button>
+          <button
+            onclick="selectCategory('cortei')"
+            data-cat="cortei"
+            class="cat-btn shrink-0 px-4 py-2 rounded-full text-xs sm:text-sm font-semibold bg-white text-charcoal-muted border border-parchment-dark hover:border-charcoal transition-all"
+          >
+            <!--👑-->
+            Cortei & Cerimonie
+          </button>
+          <button
+            onclick="selectCategory('spettacoli')"
+            data-cat="spettacoli"
+            class="cat-btn shrink-0 px-4 py-2 rounded-full text-xs sm:text-sm font-semibold bg-white text-charcoal-muted border border-parchment-dark hover:border-charcoal transition-all"
+          >
+            <!--🔥-->
+            Spettacoli & Giullari
+          </button>
+          <button
+            onclick="selectCategory('musica')"
+            data-cat="musica"
+            class="cat-btn shrink-0 px-4 py-2 rounded-full text-xs sm:text-sm font-semibold bg-white text-charcoal-muted border border-parchment-dark hover:border-charcoal transition-all"
+          >
+            <!--🎶-->
+            Musica Antica
+          </button>
+          <button
+            onclick="selectCategory('bambini')"
+            data-cat="bambini"
+            class="cat-btn shrink-0 px-4 py-2 rounded-full text-xs sm:text-sm font-semibold bg-white text-charcoal-muted border border-parchment-dark hover:border-charcoal transition-all"
+          >
+            <!--🛡️-->
+            Per Bambini
+          </button>
+        </div>
+
+        <!-- Contenitore Dinamico Card Programma -->
+        <div
+          id="program-list"
+          class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5"
+        >
+          <!-- Popolato automaticamente da JavaScript -->
+        </div>
+
+        <!-- Nota informativa -->
+        <p class="text-center text-xs text-charcoal-muted mt-8">
+          * Gli orari potrebbero subire lievi variazioni per esigenze
+          organizzative o condizioni meteo.
+        </p>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         4. SEZIONE TAVERNE, LOCANDE E MAPPA INTERATTIVA
+         ===================================================================== -->
+    <section
+      id="taverne-mappa"
+      class="py-16 sm:py-24 bg-white border-y border-parchment-dark scroll-mt-16"
+    >
+      <div class="max-w-6xl mx-auto px-4 sm:px-6">
+        <div class="text-center max-w-2xl mx-auto mb-12">
+          <span class="text-xs font-bold tracking-widest uppercase text-crimson"
+            >Sapori & Orientamento</span
+          >
+          <h2
+            class="font-serif text-3xl sm:text-4xl font-bold text-charcoal mt-2"
+          >
+            Taverne e Mappa del Borgo
+          </h2>
+          <p class="text-charcoal-muted mt-3 text-sm sm:text-base">
+            Clicca sui punti della mappa del centro storico di Gemona per
+            scoprire taverne, piazze degli spettacoli, infopoint e parcheggi.
+          </p>
+        </div>
+
+        <!-- Area Mappa Interattiva + Scheda Dettaglio Punto Selezionato -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch mb-14">
+          <!-- Mappa Stilizzata Interattiva (7 colonne su desktop) -->
+          <div
+            class="lg:col-span-7 bg-parchment rounded-2xl border border-parchment-dark p-4 sm:p-6 relative overflow-hidden shadow-sm"
+          >
+            <div class="flex items-center justify-between mb-3">
+              <span
+                class="text-xs font-bold uppercase tracking-wider text-charcoal-muted flex items-center gap-1.5"
+              >
+                <i data-lucide="compass" class="w-4 h-4 text-crimson"></i>
+                <!--🗺️-->
+                Mappa Centro Storico • Tocca un punto
+              </span>
+              <span
+                class="text-xs bg-white px-2.5 py-1 rounded-lg border border-parchment-dark font-medium text-charcoal"
+              >
+                Gemona del Friuli
+              </span>
+            </div>
+
+            <!-- Mappa Illustrata con Marker Interattivi calibrati -->
+            <div
+              id="mappa-interattiva-box"
+              class="relative w-full bg-[#3A4D63] rounded-xl border border-[#DFD5C5] overflow-hidden shadow-inner"
+            >
+              <!-- Immagine Mappa (assicurati che il nome file corrisponda) -->
+              <img
+                src="Mappa.png"
+                alt="Mappa illustrata del centro storico di Gemona"
+                class="w-full h-auto block select-none"
+              />
+
+              <!-- 1. Piazza del Ferro (in basso a sinistra, accanto al Castello) -->
+              <button
+                type="button"
+                onclick="selectMapPoint('piazza_ferro')"
+                style="top: 78%; left: 8%"
+                title="Piazza del Ferro"
+                class="map-marker absolute -translate-x-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-crimson text-white font-bold text-xs border-2 border-white shadow-lg flex items-center justify-center hover:scale-110 transition cursor-pointer"
+              >
+                1
+              </button>
+
+              <!-- 2. Castello di Gemona (torre e mastio in basso/centro-sinistra) -->
+              <button
+                type="button"
+                onclick="selectMapPoint('castello')"
+                style="top: 66%; left: 32%"
+                title="Castello di Gemona"
+                class="map-marker absolute -translate-x-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-crimson text-white font-bold text-xs border-2 border-white shadow-lg flex items-center justify-center hover:scale-110 transition cursor-pointer"
+              >
+                2
+              </button>
+
+              <!-- 3. Via Bini & Taverne (asse centrale) -->
+              <button
+                type="button"
+                onclick="selectMapPoint('via_bini')"
+                style="top: 40%; left: 57%"
+                title="Via Bini e Taverne"
+                class="map-marker absolute -translate-x-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-gold text-charcoal font-bold text-xs border-2 border-white shadow-lg flex items-center justify-center hover:scale-110 transition cursor-pointer"
+              >
+                3
+              </button>
+
+              <button
+                type="button"
+                onclick="selectMapPoint('via_bini')"
+                style="top: 42%; left: 44%"
+                title="Via Bini e Taverne"
+                class="map-marker absolute -translate-x-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-gold text-charcoal font-bold text-xs border-2 border-white shadow-lg flex items-center justify-center hover:scale-110 transition cursor-pointer"
+              >
+                3
+              </button>
+
+              <!-- 4. Duomo di Santa Maria Assunta (in alto a destra) -->
+              <button
+                type="button"
+                onclick="selectMapPoint('duomo')"
+                style="top: 39%; left: 84%"
+                title="Duomo di Santa Maria Assunta"
+                class="map-marker absolute -translate-x-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-gold text-charcoal font-bold text-xs border-2 border-white shadow-lg flex items-center justify-center hover:scale-110 transition cursor-pointer"
+              >
+                4
+              </button>
+
+              <!-- 5. Infopoint (sopra l'icona "i" già disegnata lungo Via Bini) -->
+              <button
+                type="button"
+                onclick="selectMapPoint('infopoint')"
+                style="top: 37%; left: 31%"
+                title="Infopoint e Cambio Talleri"
+                class="map-marker absolute -translate-x-1/2 -translate-y-1/2 w-7 h-7 rounded-full bg-charcoal text-gold font-bold text-xs border-2 border-gold shadow-lg flex items-center justify-center hover:scale-110 transition cursor-pointer"
+              >
+                i
+              </button>
+
+              <!-- 6. Area parcheggi (fuori dal centro storico) -->
+              <button
+                type="button"
+                onclick="selectMapPoint('parcheggi')"
+                style="top: 88%; left: 14%"
+                title="Area parcheggi (fuori dal centro storico)"
+                class="map-marker absolute -translate-x-1/2 -translate-y-1/2 bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs px-2.5 py-1.5 rounded-full border-2 border-white shadow-lg flex items-center gap-1 hover:scale-105 transition cursor-pointer"
+              >
+                <span class="text-sm leading-none">↙ P</span>
+              </button>
+
+              <!-- Pulsante ingrandimento -->
+              <button
+                type="button"
+                onclick="openMapModal()"
+                class="absolute bottom-3 right-3 bg-charcoal/85 hover:bg-charcoal text-white text-xs px-3 py-1.5 rounded-lg shadow flex items-center gap-1.5 transition cursor-pointer z-10"
+              >
+                🔍 Ingrandisci mappa
+              </button>
+            </div>
+
+            <div
+              id="map-modal"
+              onclick="if (event.target === this) closeMapModal();"
+              class="fixed inset-0 z-50 hidden bg-black/85 backdrop-blur-sm flex items-center justify-center p-4"
+            >
+              <div class="relative w-full max-w-5xl">
+                <!-- Tasto Chiudi -->
+                <button
+                  type="button"
+                  onclick="closeMapModal()"
+                  class="absolute -top-11 right-0 bg-white text-charcoal hover:bg-gold font-bold text-xs px-3.5 py-2 rounded-lg shadow cursor-pointer"
+                >
+                  ✕ Chiudi mappa
+                </button>
+
+                <!-- Qui dentro verrà clonata automaticamente la mappa completa di pallini -->
+                <div
+                  id="map-modal-content"
+                  class="w-full rounded-xl overflow-hidden shadow-2xl"
+                ></div>
+              </div>
+            </div>
+
+            <!-- Legenda rapida sotto mappa -->
+            <div
+              class="flex flex-wrap items-center gap-4 mt-3 text-xs text-charcoal-muted"
+            >
+              <span class="flex items-center gap-1.5"
+                ><span
+                  class="w-3 h-3 rounded-full bg-crimson inline-block"
+                ></span>
+                Palchi & Cerimonie</span
+              >
+              <span class="flex items-center gap-1.5"
+                ><span class="w-3 h-3 rounded-full bg-gold inline-block"></span>
+                Taverne & Borghi</span
+              >
+              <span class="flex items-center gap-1.5"
+                ><span
+                  class="w-3 h-3 rounded-full bg-charcoal inline-block"
+                ></span>
+                Infopoint</span
+              >
+              <span class="flex items-center gap-1.5"
+                ><span
+                  class="w-3 h-3 rounded-full bg-blue-600 inline-block"
+                ></span>
+                Parcheggi</span
+              >
+            </div>
+          </div>
+
+          <!-- Scheda Dettaglio Punto Selezionato (5 colonne su desktop) -->
+          <div
+            id="map-detail-card"
+            class="lg:col-span-5 bg-parchment rounded-2xl border border-parchment-dark p-6 sm:p-8 flex flex-col justify-between"
+          >
+            <div id="map-detail-card">
+              <!-- Popolato da JS al click su un marker -->
+            </div>
+
+            <div class="mt-6 pt-5 border-t border-parchment-dark">
+              <a
+                id="google-maps-link"
+                href="https://www.google.com/maps/search/?api=1&query=Piazza+del+Ferro+Gemona+del+Friuli"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="w-full inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl bg-charcoal hover:bg-crimson text-white font-semibold text-sm transition-colors"
+              >
+                <i data-lucide="navigation" class="w-4 h-4 text-gold"></i>
+                Apri navigatore su Google Maps
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Griglia Taverne e Locande Tipiche -->
+        <div>
+          <div
+            class="flex flex-col sm:flex-row sm:items-end justify-between mb-6 gap-2"
+          >
+            <div>
+              <h3 class="font-serif text-2xl font-bold text-charcoal">
+                Le Taverne dei Borghi
+              </h3>
+              <p class="text-sm text-charcoal-muted mt-1">
+                Piatti della tradizione friulana, carni alla brace, frico e vini
+                del territorio.
+              </p>
+            </div>
+            <!-- <span
+              class="inline-flex items-center gap-1.5 text-xs font-semibold px-3 py-1.5 rounded-lg bg-parchment text-crimson border border-crimson/20"
+            >
+              <i data-lucide="coins" class="w-4 h-4"></i>
+              Possibilità di pagamento con il Tallero
+            </span> -->
+          </div>
+
+          <div
+            id="taverns-grid"
+            class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5"
+          >
+            <!-- Popolato automaticamente da JavaScript -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         5. SEZIONE LA STORIA DEL TALLERO
+         ===================================================================== -->
+    <section id="storia" class="py-16 sm:py-24 scroll-mt-16">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6">
+        <!-- Layout Editoriale a Due Colonne -->
+        <div
+          class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center mb-16"
+        >
+          <!-- Colonna Testo Storico -->
+          <div class="lg:col-span-7">
+            <span
+              class="text-xs font-bold tracking-widest uppercase text-crimson"
+              >Radici e Identità</span
+            >
+            <h2
+              class="font-serif text-3xl sm:text-4xl font-bold text-charcoal mt-2 mb-6"
+            >
+              Il Significato del Tallero d'Argento
+            </h2>
+
+            <div
+              class="space-y-4 text-charcoal-muted text-base leading-relaxed"
+            >
+              <p>
+                Nel Medioevo e nel Rinascimento,
+                <strong class="text-charcoal">Gemona del Friuli</strong>
+                rappresentava uno snodo commerciale e strategico imprescindibile
+                lungo la via che collegava l'Adriatico al mondo germanico.
+                Grazie al diritto di <em>Niederlech</em> (l'obbligo per i
+                mercanti di passaggio di scaricare e mettere in vendita le
+                proprie merci in città), Gemona divenne un centro florido e
+                vivace.
+              </p>
+              <p>
+                La
+                <strong class="text-charcoal">Festa del Tallero</strong> rievoca
+                il momento solenne in cui il
+                <strong>Capitano del Popolo</strong> e le autorità cittadine
+                ricevevano il tributo simbolico e celebravano l'unione tra i
+                borghi e le contrade della città.
+              </p>
+              <p>
+                Ancora oggi, durante i giorni della manifestazione, i figuranti
+                in abiti storici fedelmente ricostruiti, gli sbandieratori, i
+                tamburini e gli artigiani riportano le vie del centro
+                all'atmosfera autentica di un tempo.
+              </p>
+            </div>
+          </div>
+
+          <!-- Colonna Card Illustrativa / Simbolo Moneta -->
+          <div class="lg:col-span-5">
+            <div
+              class="bg-charcoal text-white rounded-3xl p-8 sm:p-10 relative overflow-hidden shadow-xl border border-gold/30"
+            >
+              <!-- Decorazione sfondo -->
+              <div
+                class="absolute -right-12 -top-12 w-48 h-48 rounded-full bg-crimson/30 blur-2xl"
+              ></div>
+              <div
+                class="absolute -left-12 -bottom-12 w-48 h-48 rounded-full bg-gold/20 blur-2xl"
+              ></div>
+
+              <div class="relative z-10 text-center">
+                <!-- Riproduzione stilizzata della Moneta del Tallero -->
+                <div
+                  class="w-28 h-28 mx-auto rounded-full bg-gradient-to-br from-gold-light via-gold to-gold-dark p-1 shadow-lg mb-6"
+                >
+                  <div
+                    class="w-full h-full rounded-full bg-charcoal flex flex-col items-center justify-center border border-gold/60"
+                  >
+                    <span
+                      class="font-serif text-xs tracking-widest text-gold uppercase"
+                      >Glemona</span
+                    >
+                    <i data-lucide="crown" class="w-8 h-8 text-gold my-1"></i>
+                    <span
+                      class="font-serif text-[10px] tracking-widest text-gray-300"
+                      >TALLERO</span
+                    >
+                  </div>
+                </div>
+
+                <blockquote
+                  class="font-serif text-lg sm:text-xl italic text-gold-light leading-relaxed mb-4"
+                >
+                  "Un simbolo di libertà civica, accoglienza e orgoglio per
+                  l'intera comunità gemonese."
+                </blockquote>
+                <p
+                  class="text-xs text-gray-400 uppercase tracking-widest font-semibold"
+                >
+                  Rievocazione Storica • Pro Loco Gemona
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3 Box Curiosità Storiche / Timeline -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div
+            class="bg-white rounded-2xl p-6 border border-parchment-dark shadow-sm"
+          >
+            <div
+              class="w-11 h-11 rounded-xl bg-crimson/10 text-crimson flex items-center justify-center mb-4"
+            >
+              <i data-lucide="coins" class="w-6 h-6"></i>
+            </div>
+            <span
+              class="text-xs font-bold uppercase tracking-wider text-gold-dark"
+              >01 • La Moneta</span
+            >
+            <h3 class="font-serif text-xl font-bold text-charcoal mt-1 mb-2">
+              Il Conio del Tallero
+            </h3>
+            <p class="text-sm text-charcoal-muted leading-relaxed">
+              Il Tallero era una moneta d'argento di grande prestigio diffusa in
+              tutta l'area mitteleuropea. Durante la festa viene coniato un
+              esemplare commemorativo speciale.
+            </p>
+          </div>
+
+          <div
+            class="bg-white rounded-2xl p-6 border border-parchment-dark shadow-sm"
+          >
+            <div
+              class="w-11 h-11 rounded-xl bg-crimson/10 text-crimson flex items-center justify-center mb-4"
+            >
+              <i data-lucide="shield" class="w-6 h-6"></i>
+            </div>
+            <span
+              class="text-xs font-bold uppercase tracking-wider text-gold-dark"
+              >02 • La Comunità</span
+            >
+            <h3 class="font-serif text-xl font-bold text-charcoal mt-1 mb-2">
+              I Borghi e le Contrade
+            </h3>
+            <p class="text-sm text-charcoal-muted leading-relaxed">
+              I borghi storici di Gemona si sfidano in giochi di abilità, tiro
+              con l'arco e prove di destrezza per conquistare l'ambito drappo e
+              l'onore della vittoria.
+            </p>
+          </div>
+
+          <div
+            class="bg-white rounded-2xl p-6 border border-parchment-dark shadow-sm"
+          >
+            <div
+              class="w-11 h-11 rounded-xl bg-crimson/10 text-crimson flex items-center justify-center mb-4"
+            >
+              <i data-lucide="flag" class="w-6 h-6"></i>
+            </div>
+            <span
+              class="text-xs font-bold uppercase tracking-wider text-gold-dark"
+              >03 • L'Apice della Festa</span
+            >
+            <h3 class="font-serif text-xl font-bold text-charcoal mt-1 mb-2">
+              Il Corteo Storico
+            </h3>
+            <p class="text-sm text-charcoal-muted leading-relaxed">
+              Centinaia di figuranti, nobili, popolani, armigeri e gruppi ospiti
+              sfilano lungo Via Bini fino al Duomo e a Piazza del Ferro tra
+              squilli di chiarine.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         6. SEZIONE INFO UTILI & COME ARRIVARE
+         ===================================================================== -->
+    <section
+      id="info-utili"
+      class="py-16 sm:py-24 bg-parchment-dark/60 border-t border-parchment-dark scroll-mt-16"
+    >
+      <div class="max-w-6xl mx-auto px-4 sm:px-6">
+        <div class="text-center max-w-2xl mx-auto mb-12">
+          <span class="text-xs font-bold tracking-widest uppercase text-crimson"
+            >Logistica & Accoglienza</span
+          >
+          <h2
+            class="font-serif text-3xl sm:text-4xl font-bold text-charcoal mt-2"
+          >
+            Info Utili & Come Arrivare
+          </h2>
+          <p class="text-charcoal-muted mt-3 text-sm sm:text-base">
+            Tutto quello che serve per raggiungere Gemona del Friuli comodamente
+            e godersi la festa senza pensieri.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <!-- Card 1: Dove Parcheggiare -->
+          <div
+            class="bg-white rounded-2xl p-6 sm:p-7 border border-parchment-dark shadow-sm flex flex-col justify-between"
+          >
+            <div>
+              <div
+                class="w-12 h-12 rounded-xl bg-blue-50 text-blue-700 flex items-center justify-center mb-5"
+              >
+                <i data-lucide="car" class="w-6 h-6"></i>
+              </div>
+              <h3 class="font-serif text-xl font-bold text-charcoal mb-3">
+                Dove Parcheggiare
+              </h3>
+              <ul class="space-y-2.5 text-sm text-charcoal-muted">
+                <li class="flex items-start gap-2">
+                  <span class="text-crimson font-bold">•</span>
+                  <span
+                    ><strong>Parcheggio Via Dante / Zona Ospedale:</strong> A
+                    pochi minuti a piedi dal centro storico.</span
+                  >
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-crimson font-bold">•</span>
+                  <span
+                    ><strong>Area Stazione FS / Piazzale Chiavris:</strong>
+                    Ampia disponibilità di posti auto.</span
+                  >
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-crimson font-bold">•</span>
+                  <span
+                    ><strong>Zona Artigianale / Campagnola:</strong> Collegata
+                    nelle ore di punta.</span
+                  >
+                </li>
+              </ul>
+            </div>
+            <div class="mt-6 pt-4 border-t border-parchment-dark">
+              <span class="text-xs font-semibold text-charcoal-muted"
+                >Consiglio: arriva 30 min prima dei cortei principali.</span
+              >
+            </div>
+          </div>
+
+          <!-- Card 2: Come Arrivare -->
+          <div
+            class="bg-white rounded-2xl p-6 sm:p-7 border border-parchment-dark shadow-sm flex flex-col justify-between"
+          >
+            <div>
+              <div
+                class="w-12 h-12 rounded-xl bg-gold/15 text-gold-dark flex items-center justify-center mb-5"
+              >
+                <i data-lucide="train-front" class="w-6 h-6"></i>
+              </div>
+              <h3 class="font-serif text-xl font-bold text-charcoal mb-3">
+                Come Arrivare
+              </h3>
+              <ul class="space-y-2.5 text-sm text-charcoal-muted">
+                <li class="flex items-start gap-2">
+                  <span class="text-crimson font-bold">•</span>
+                  <span
+                    ><strong>In Auto:</strong> Autostrada A23 Udine-Tarvisio,
+                    uscita <em>Gemona - Osoppo</em> (a 4 km dal centro).</span
+                  >
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-crimson font-bold">•</span>
+                  <span
+                    ><strong>In Treno:</strong> Stazione di
+                    <em>Gemona del Friuli</em> (linea Udine-Tarvisio), poi 15
+                    min a piedi o bus urbano.</span
+                  >
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-crimson font-bold">•</span>
+                  <span
+                    ><strong>In Bici:</strong> Lungo la Ciclovia Alpe Adria (FVG
+                    1).</span
+                  >
+                </li>
+              </ul>
+            </div>
+            <div class="mt-6 pt-4 border-t border-parchment-dark">
+              <a
+                href="https://www.google.com/maps/dir//Gemona+del+Friuli+UD"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="text-xs font-bold text-crimson hover:underline inline-flex items-center gap-1"
+              >
+                Calcola il percorso su Google Maps
+                <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Card 3: Contatti & Organizzazione -->
+          <div
+            class="bg-white rounded-2xl p-6 sm:p-7 border border-parchment-dark shadow-sm flex flex-col justify-between"
+          >
+            <div>
+              <div
+                class="w-12 h-12 rounded-xl bg-crimson/10 text-crimson flex items-center justify-center mb-5"
+              >
+                <i data-lucide="info" class="w-6 h-6"></i>
+              </div>
+              <h3 class="font-serif text-xl font-bold text-charcoal mb-3">
+                Organizzazione & Info
+              </h3>
+              <p class="text-sm text-charcoal-muted mb-4">
+                Evento organizzato dall'<strong
+                  >Associazione Pro Loco Gemona</strong
+                >
+                in collaborazione con il Comune di Gemona del Friuli e i borghi
+                cittadini.
+              </p>
+              <ul class="space-y-2 text-sm text-charcoal">
+                <li class="flex items-center gap-2">
+                  <i
+                    data-lucide="map-pin"
+                    class="w-4 h-4 text-crimson shrink-0"
+                  ></i>
+                  <span>Via Bini 9, 33013 Gemona del Friuli (UD)</span>
+                </li>
+                <li class="flex items-center gap-2">
+                  <i
+                    data-lucide="globe"
+                    class="w-4 h-4 text-crimson shrink-0"
+                  ></i>
+                  <a
+                    href="https://www.prolocogemona.it"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="hover:text-crimson underline"
+                    >www.prolocogemona.it</a
+                  >
+                </li>
+              </ul>
+            </div>
+            <div class="mt-6 pt-4 border-t border-parchment-dark">
+              <a
+                href="https://www.prolocogemona.it/contatti/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-parchment hover:bg-crimson hover:text-white text-charcoal font-semibold text-xs transition-colors"
+              >
+                Contatta la Pro Loco Gemona
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         7. FOOTER ELEGANTE
+         ===================================================================== -->
+    <footer class="bg-charcoal text-gray-300 border-t-4 border-gold">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 py-12">
+        <div
+          class="flex flex-col md:flex-row items-start md:items-center justify-between gap-8 pb-8 border-b border-white/10"
+        >
+          <div>
+            <div class="flex items-center gap-3">
+              <div
+                class="w-9 h-9 rounded-full bg-crimson flex items-center justify-center border border-gold"
+              >
+                <i data-lucide="crown" class="w-5 h-5 text-gold"></i>
+              </div>
+              <span
+                class="font-serif font-bold text-lg text-white tracking-wider"
+                >FESTA DEL TALLERO</span
+              >
+            </div>
+            <p class="text-sm text-gray-400 mt-2 max-w-md">
+              Rievocazione storica medievale e rinascimentale nel cuore di
+              Gemona del Friuli (UD).
+            </p>
+          </div>
+
+          <div class="flex flex-wrap gap-5 text-sm font-medium">
+            <a href="#programma" class="hover:text-gold transition-colors"
+              >Programma</a
+            >
+            <a href="#taverne-mappa" class="hover:text-gold transition-colors"
+              >Taverne & Mappa</a
+            >
+            <a href="#storia" class="hover:text-gold transition-colors"
+              >La Storia</a
+            >
+            <a href="#info-utili" class="hover:text-gold transition-colors"
+              >Info Utili</a
+            >
+            <a
+              href="https://www.prolocogemona.it"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-gold hover:underline"
+              >Pro Loco Gemona</a
+            >
+          </div>
+        </div>
+
+        <div
+          class="pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-gray-400"
+        >
+          <p>
+            © <span id="current-year"></span> Festa del Tallero • Gemona del
+            Friuli. Tutti i diritti riservati.
+          </p>
+          <a
+            href="#"
+            class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg bg-white/5 hover:bg-white/10 text-white font-semibold transition-colors"
+          >
+            Torna su
+            <i data-lucide="arrow-up" class="w-3.5 h-3.5 text-gold"></i>
+          </a>
+        </div>
+      </div>
+    </footer>
+
+    <!-- =====================================================================
+         DATI E LOGICA INTERATTIVA (FACILMENTE MODIFICABILI)
+         ===================================================================== -->
+    <script>
+      // -------------------------------------------------------------------
+      // 1. DATI DEL PROGRAMMA (Modifica qui orari, titoli e descrizioni)
+      // Categorie disponibili: 'cortei', 'spettacoli', 'musica', 'bambini'
+      // -------------------------------------------------------------------
+      const programData = {
+        venerdi: [
+          {
+            time: "18:30",
+            title: "Apertura delle Taverne e dei Borghi",
+            location: "Centro Storico & Via Bini",
+            category: "cortei",
+            categoryLabel: "Cerimonia",
+            description:
+              "Squillo di chiarine e rullo di tamburi annunciano l'inizio della Festa del Tallero. Apertura ufficiale delle locande e del mercato storico.",
+          },
+          {
+            time: "19:30",
+            title: "Musici e Menestrelli lungo le Contrade",
+            location: "Via Bini e Piazza del Ferro",
+            category: "musica",
+            categoryLabel: "Musica Antica",
+            description:
+              "Spettacolo itinerante con cornamuse, liuti e percussioni medievali ad accompagnare la cena nelle taverne.",
+          },
+          {
+            time: "21:15",
+            title: "Spettacolo di Fuoco e Giocoleria Notturna",
+            location: "Piazza del Ferro",
+            category: "spettacoli",
+            categoryLabel: "Spettacolo",
+            description:
+              "Giochi di fiamme, acrobazie e suggestioni luminose sotto le stelle nel cuore antico di Gemona.",
+          },
+        ],
+        sabato: [
+          {
+            time: "10:30",
+            title: "Apertura Accampamento Medievale e Antichi Mestieri",
+            location: "Parco del Castello & Via Bini",
+            category: "bambini",
+            categoryLabel: "Famiglie & Bambini",
+            description:
+              "Dimostrazioni dal vivo di battitura della moneta, lavorazione del cuoio, tessitura e didattica d'arme per i più piccoli.",
+          },
+          {
+            time: "15:30",
+            title: "Torneo di Tiro con l'Arco Storico",
+            location: "Area Castello",
+            category: "spettacoli",
+            categoryLabel: "Spettacolo",
+            description:
+              "Sfida tra gli arcieri dei borghi gemonesi con archi storici in legno.",
+          },
+          {
+            time: "17:00",
+            title: "La Scuola dei Piccoli Cavalieri",
+            location: "Sagrato del Duomo",
+            category: "bambini",
+            categoryLabel: "Per Bambini",
+            description:
+              "Giochi di destrezza, investitura simbolica e prove di coraggio dedicate a bambini e ragazzi.",
+          },
+          {
+            time: "19:00",
+            title: "Cena nelle Taverne & Concerti Itineranti",
+            location: "Tutti i Borghi",
+            category: "musica",
+            categoryLabel: "Musica Antica",
+            description:
+              "Piatti tipici della tradizione friulana accompagnati da danze rinascimentali e musica dal vivo.",
+          },
+          {
+            time: "21:30",
+            title: "Esibizione Sbandieratori e Tamburini",
+            location: "Piazza del Ferro",
+            category: "cortei",
+            categoryLabel: "Cortei & Bandiere",
+            description:
+              "Coreografie di bandiere, evoluzioni acrobatiche e ritmo incalzante dei tamburi.",
+          },
+        ],
+        domenica: [
+          {
+            time: "10:00",
+            title: "Mercato Storico degli Artigiani",
+            location: "Via Bini",
+            category: "spettacoli",
+            categoryLabel: "Mercato Storico",
+            description:
+              "Esposizione e dimostrazione di artigianato medievale, spezie, ceramiche e prodotti del territorio.",
+          },
+          {
+            time: "11:15",
+            title: "Santa Messa Solenne con i Figuranti",
+            location: "Duomo di Santa Maria Assunta",
+            category: "cortei",
+            categoryLabel: "Cerimonia",
+            description:
+              "Celebrazione solenne alla presenza delle delegazioni dei borghi in costume storico.",
+          },
+          {
+            time: "16:00",
+            title: "Grande Corteo Storico e Consegna del Tallero",
+            location: "Da Via Bini a Piazza del Ferro",
+            category: "cortei",
+            categoryLabel: "Evento Clou",
+            description:
+              "Il momento più atteso: sfilata di centinaia di figuranti, nobili, armigeri e gruppi ospiti, culminante con la solenne consegna del Tallero.",
+          },
+          {
+            time: "18:00",
+            title: "Palio dei Borghi e Sfida Finale",
+            location: "Piazza del Ferro",
+            category: "spettacoli",
+            categoryLabel: "Spettacolo",
+            description:
+              "Le contrade di Gemona si contendono la vittoria finale tra tifo, prove di abilità e musica.",
+          },
+        ],
+      };
+
+      // -------------------------------------------------------------------
+      // 2. DATI PUNTI MAPPA INTERATTIVA
+      // -------------------------------------------------------------------
+      const mapPointsData = {
+        piazza_ferro: {
+          badge: "Punto 1 • Cuore dell'Evento",
+          title: "Piazza del Ferro",
+          description:
+            "Il salotto storico di Gemona. Qui si svolgono la cerimonia solenne della consegna del Tallero, le esibizioni degli sbandieratori e gli spettacoli serali.",
+          highlights: [
+            "Cerimonia del Tallero",
+            "Sbandieratori e Fuoco",
+            "Area Spettacoli Principale",
+          ],
+          mapsUrl:
+            "https://www.google.com/maps/search/?api=1&query=Piazza+del+Ferro+Gemona+del+Friuli",
+        },
+        castello: {
+          badge: "Punto 2 • Area Storica & Giochi",
+          title: "Colle del Castello",
+          description:
+            "La parte più alta e suggestiva della città, con vista panoramica sulla valle del Tagliamento. Ospita l'accampamento medievale e il tiro con l'arco.",
+          highlights: [
+            "Accampamento d'arme",
+            "Torneo di tiro con l'arco",
+            "Vista panoramica",
+          ],
+          mapsUrl:
+            "https://www.google.com/maps/search/?api=1&query=Castello+di+Gemona+del+Friuli",
+        },
+        via_bini: {
+          badge: "Punto 3 • Gusto & Artigianato",
+          title: "Via Bini & Taverne dei Borghi",
+          description:
+            "L'arteria principale del centro storico, animata da botteghe artigiane, banchi del mercato medievale e dalle taverne gestite dai borghi gemonesi.",
+          highlights: [
+            "Taverne gastronomiche",
+            "Mercato degli artigiani",
+            "Musica itinerante",
+          ],
+          mapsUrl:
+            "https://www.google.com/maps/search/?api=1&query=Via+Giuseppe+Bini+Gemona+del+Friuli",
+        },
+        duomo: {
+          badge: "Punto 4 • Monumento Simbolo",
+          title: "Duomo di Santa Maria Assunta",
+          description:
+            "Capolavoro romanico-gotico con la celebre statua colossale di San Cristoforo. Punto di riferimento per i cortei e le celebrazioni solenni.",
+          highlights: [
+            "Sagrato panoramico",
+            "Messa con i figuranti",
+            "Passaggio Corteo Storico",
+          ],
+          mapsUrl:
+            "https://www.google.com/maps/search/?api=1&query=Duomo+di+Santa+Maria+Assunta+Gemona+del+Friuli",
+        },
+        infopoint: {
+          badge: "Punto Info • Accoglienza",
+          title: "Infopoint & Cambio Talleri",
+          description:
+            "Punto informativo della Pro Loco Gemona dove ritirare il programma cartaceo, chiedere indicazioni e ricevere informazioni sulle visite guidate.",
+          highlights: [
+            "Programma cartaceo",
+            "Informazioni turistiche",
+            "Assistenza visitatori",
+          ],
+          mapsUrl:
+            "https://www.google.com/maps/search/?api=1&query=Pro+Loco+Gemona+Via+Bini+9",
+        },
+        parcheggi: {
+          badge: "Logistica • Sosta Auto",
+          title: "Aree Parcheggio Consigliate",
+          description:
+            "Aree di sosta consigliate a ridosso del centro storico (zona Via Dante, Piazzale Chiavris e area Stazione) per raggiungere comodamente la festa a piedi.",
+          highlights: [
+            "Sosta gratuita / disco orario",
+            "Accesso pedonale al centro",
+            "Vicino alle vie d'accesso",
+          ],
+          mapsUrl:
+            "https://www.google.com/maps/search/?api=1&query=Parcheggio+Via+Dante+Gemona+del+Friuli",
+        },
+      };
+
+      function openMapModal() {
+        const originalMap = document.getElementById("mappa-interattiva-box");
+        const modalContent = document.getElementById("map-modal-content");
+        const modal = document.getElementById("map-modal");
+
+        // Clona l'intero contenitore (immagine + tutti i pallini numerati)
+        const clonedMap = originalMap.cloneNode(true);
+        clonedMap.removeAttribute("id");
+
+        // Rimuove il pulsante "Ingrandisci mappa" dalla versione già ingrandita
+        const zoomBtn = clonedMap.querySelector(
+          'button[onclick="openMapModal()"]',
+        );
+        if (zoomBtn) zoomBtn.remove();
+
+        // Se clicchi un pallino nella mappa ingrandita, chiude lo zoom e mostra i dettagli
+        clonedMap.querySelectorAll(".map-marker").forEach((marker) => {
+          const originalClick = marker.getAttribute("onclick");
+          marker.setAttribute("onclick", `${originalClick}; closeMapModal();`);
+        });
+
+        modalContent.innerHTML = "";
+        modalContent.appendChild(clonedMap);
+        modal.classList.remove("hidden");
+        document.body.style.overflow = "hidden";
+      }
+
+      function closeMapModal() {
+        document.getElementById("map-modal").classList.add("hidden");
+        document.body.style.overflow = "";
+      }
+
+      // -------------------------------------------------------------------
+      // 3. DATI TAVERNE E LOCANDE (Personalizzabili con i nomi dei Borghi)
+      // -------------------------------------------------------------------
+      const tavernsData = [
+        {
+          name: "Taverna del Capitano",
+          borgo: "Piazza del Ferro",
+          mapKey: "piazza-ferro",
+          specialties:
+            "Frico friulano con polenta, salsiccia alla brace e vino Refosco.",
+          tag: "Cucina Tipica",
+        },
+        {
+          name: "Locanda dei Mercanti",
+          borgo: "Via Bini Alta",
+          mapKey: "via-bini",
+          specialties:
+            "Zuppa d'orzo e fagioli, taglieri di affettati locali e formaggi di malga.",
+          tag: "Zuppe & Taglieri",
+        },
+        {
+          name: "Osteria del Castello",
+          borgo: "Salita al Castello",
+          mapKey: "castello",
+          specialties:
+            "Carni allo spiedo, costine glassate al miele e birra artigianale.",
+          tag: "Griglia & Spiedo",
+        },
+        {
+          name: "Taverna di San Cristoforo",
+          borgo: "Zona Duomo",
+          mapKey: "duomo",
+          specialties:
+            "Cjarsons della Carnia, dolci tradizionali e sidro di mele.",
+          tag: "Primi & Dolci",
+        },
+        {
+          name: "Antica Mesciuta del Borgo",
+          borgo: "Via Bini Bassa",
+          mapKey: "via-bini",
+          specialties:
+            "Vini dei Colli Orientali, idromele speziato e stuzzichini del pellegrino.",
+          tag: "Enoteca Storica",
+        },
+        {
+          name: "La Dispensa del Pellegrino",
+          borgo: "Piazzetta Centrale",
+          mapKey: "infopoint",
+          specialties:
+            "Panini caldi con porchetta, frittelle dolci e opzioni vegetariane.",
+          tag: "Fast & Street Food",
+        },
+      ];
+
+      // -------------------------------------------------------------------
+      // LOGICA INTERATTIVA DEL SITO
+      // -------------------------------------------------------------------
+      let currentDay = "sabato";
+      let currentCategory = "tutti";
+
+      // Renderizza gli eventi del programma filtrati
+      function renderProgram() {
+        const container = document.getElementById("program-list");
+        const events = programData[currentDay] || [];
+
+        const filtered =
+          currentCategory === "tutti"
+            ? events
+            : events.filter((ev) => ev.category === currentCategory);
+
+        if (filtered.length === 0) {
+          container.innerHTML = `
+                    <div class="col-span-full bg-white rounded-2xl p-8 text-center border border-parchment-dark">
+                        <p class="text-charcoal-muted font-medium">Nessun evento trovato per questa categoria nella giornata selezionata.</p>
+                        <button onclick="selectCategory('tutti')" class="mt-3 text-sm font-bold text-crimson underline">Mostra tutti gli eventi della giornata</button>
+                    </div>
+                `;
+          return;
+        }
+
+        container.innerHTML = filtered
+          .map(
+            (ev) => `
+                <article class="bg-white rounded-2xl p-5 sm:p-6 border border-parchment-dark shadow-sm hover:shadow-md hover:border-gold/60 transition-all flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between gap-3 mb-3">
+                            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-crimson text-white font-bold text-sm">
+                                <i data-lucide="clock" class="w-3.5 h-3.5 text-gold"></i>
+                                ${ev.time}
+                            </span>
+                            <span class="text-xs font-bold uppercase tracking-wider px-2.5 py-1 rounded-md bg-parchment text-charcoal-muted border border-parchment-dark">
+                                ${ev.categoryLabel}
+                            </span>
+                        </div>
+                        <h3 class="font-serif text-lg sm:text-xl font-bold text-charcoal mb-2 leading-snug">
+                            ${ev.title}
+                        </h3>
+                        <p class="text-sm text-charcoal-muted leading-relaxed mb-4">
+                            ${ev.description}
+                        </p>
+                    </div>
+                    <div class="pt-3 border-t border-parchment-dark flex items-center gap-1.5 text-xs font-semibold text-crimson">
+                        <i data-lucide="map-pin" class="w-4 h-4 shrink-0"></i>
+                        <span>${ev.location}</span>
+                    </div>
+                </article>
+            `,
+          )
+          .join("");
+
+        lucide.createIcons();
+      }
+
+      // Cambia giornata attiva
+      function selectDay(day) {
+        currentDay = day;
+        document.querySelectorAll(".day-tab").forEach((btn) => {
+          btn.classList.remove("bg-crimson", "text-white", "shadow-md");
+          btn.classList.add(
+            "bg-white",
+            "text-charcoal",
+            "border",
+            "border-parchment-dark",
+          );
+        });
+        const activeTab = document.getElementById("tab-" + day);
+        activeTab.classList.remove(
+          "bg-white",
+          "text-charcoal",
+          "border",
+          "border-parchment-dark",
+        );
+        activeTab.classList.add("bg-crimson", "text-white", "shadow-md");
+        renderProgram();
+      }
+
+      // Cambia filtro categoria
+      function selectCategory(cat) {
+        currentCategory = cat;
+        document.querySelectorAll(".cat-btn").forEach((btn) => {
+          if (btn.dataset.cat === cat) {
+            btn.classList.remove(
+              "bg-white",
+              "text-charcoal-muted",
+              "border",
+              "border-parchment-dark",
+            );
+            btn.classList.add("bg-charcoal", "text-white");
+          } else {
+            btn.classList.remove("bg-charcoal", "text-white");
+            btn.classList.add(
+              "bg-white",
+              "text-charcoal-muted",
+              "border",
+              "border-parchment-dark",
+            );
+          }
+        });
+        renderProgram();
+      }
+
+      // Aggiorna la scheda dettaglio della mappa
+      function selectMapPoint(pointKey) {
+        const point = mapPointsData[pointKey];
+        if (!point) return;
+
+        const card = document.getElementById("map-detail-card");
+        if (!card) return;
+
+        card.innerHTML = `
+          <div>
+              <span class="inline-block text-xs font-bold uppercase tracking-wider px-2.5 py-1 rounded-md bg-crimson/10 text-crimson mb-3">
+                  ${point.badge}
+              </span>
+              <h3 class="font-serif text-2xl font-bold text-charcoal mb-3">
+                  ${point.title}
+              </h3>
+              <p class="text-sm text-charcoal-muted leading-relaxed mb-5">
+                  ${point.description}
+              </p>
+              <div class="space-y-2">
+                  <span class="block text-xs font-bold uppercase tracking-wider text-charcoal">Cosa trovi qui:</span>
+                  <ul class="space-y-1.5">
+                      ${point.highlights
+                        .map(
+                          (item) => `
+                          <li class="flex items-center gap-2 text-sm text-charcoal font-medium">
+                              <span class="w-1.5 h-1.5 rounded-full bg-gold"></span>
+                              ${item}
+                          </li>
+                      `,
+                        )
+                        .join("")}
+                  </ul>
+              </div>
+          </div>
+        `;
+
+        const mapsLink = document.getElementById("google-maps-link");
+        if (mapsLink && point.mapsUrl) {
+          mapsLink.href = point.mapsUrl;
+        }
+      }
+
+      document.addEventListener("DOMContentLoaded", () => {
+        const firstKey = Object.keys(mapPointsData)[0];
+        if (firstKey) selectMapPoint(firstKey);
+      });
+      // Renderizza la griglia delle taverne
+      function renderTaverns() {
+        const grid = document.getElementById("taverns-grid");
+        grid.innerHTML = tavernsData
+          .map(
+            (t) => `
+                <div class="bg-parchment rounded-2xl p-5 border border-parchment-dark flex flex-col justify-between hover:border-gold transition-all">
+                    <div>
+                        <div class="flex items-center justify-between gap-2 mb-2">
+                            <span class="text-xs font-bold text-crimson uppercase tracking-wider">${t.borgo}</span>
+                            <span class="text-[11px] font-semibold px-2 py-0.5 rounded bg-white text-charcoal-muted border border-parchment-dark">${t.tag}</span>
+                        </div>
+                        <h4 class="font-serif text-lg font-bold text-charcoal mb-2">${t.name}</h4>
+                        <p class="text-sm text-charcoal-muted leading-relaxed mb-4">${t.specialties}</p>
+                    </div>
+                    <button onclick="focusOnMap('${t.mapKey}')" class="w-full py-2.5 px-4 rounded-xl bg-white hover:bg-crimson hover:text-white text-charcoal text-xs font-bold border border-parchment-dark transition-colors flex items-center justify-center gap-1.5">
+                        <i data-lucide="map-pin" class="w-3.5 h-3.5 text-gold"></i>
+                        Vedi sulla mappa
+                    </button>
+                </div>
+            `,
+          )
+          .join("");
+      }
+
+      // Scorre alla mappa e seleziona il punto della taverna
+      function focusOnMap(mapKey) {
+        selectMapPoint(mapKey);
+        document
+          .getElementById("taverne-mappa")
+          .scrollIntoView({ behavior: "smooth" });
+      }
+
+      // Gestione Menu Mobile
+      const mobileBtn = document.getElementById("mobile-menu-btn");
+      const mobileMenu = document.getElementById("mobile-menu");
+      const iconHamburger = document.getElementById("icon-hamburger");
+      const iconClose = document.getElementById("icon-close");
+
+      function closeMobileMenu() {
+        if (mobileMenu) mobileMenu.classList.add("hidden");
+        if (iconHamburger) {
+          iconHamburger.classList.remove("opacity-0", "rotate-90", "scale-75");
+          iconHamburger.classList.add("opacity-100", "rotate-0", "scale-100");
+        }
+        if (iconClose) {
+          iconClose.classList.remove("opacity-100", "rotate-0", "scale-100");
+          iconClose.classList.add("opacity-0", "-rotate-90", "scale-75");
+        }
+      }
+
+      if (mobileBtn) {
+        mobileBtn.addEventListener("click", () => {
+          const isClosed = mobileMenu.classList.contains("hidden");
+          if (isClosed) {
+            mobileMenu.classList.remove("hidden");
+            if (iconHamburger) {
+              iconHamburger.classList.remove(
+                "opacity-100",
+                "rotate-0",
+                "scale-100",
+              );
+              iconHamburger.classList.add("opacity-0", "rotate-90", "scale-75");
+            }
+            if (iconClose) {
+              iconClose.classList.remove("opacity-0", "-rotate-90", "scale-75");
+              iconClose.classList.add("opacity-100", "rotate-0", "scale-100");
+            }
+          } else {
+            closeMobileMenu();
+          }
+        });
+      }
+
+      document.querySelectorAll(".mobile-link").forEach((link) => {
+        link.addEventListener("click", closeMobileMenu);
+      });
+
+      // Inizializzazione al caricamento pagina
+      document.addEventListener("DOMContentLoaded", () => {
+        document.getElementById("current-year").textContent =
+          new Date().getFullYear();
+        renderProgram();
+        renderTaverns();
+        lucide.createIcons();
+      });
+
+      // --- SCORRIMENTO FLUIDO MENU ---
+      // --- SCORRIMENTO FLUIDO MENU (PIÙ LENTO SU MOBILE) ---
+      function smoothScrollTo(targetY, customDuration) {
+        // Su mobile (< 768px) usa n ms (n secondi), su desktop 700ms
+        const duration =
+          customDuration || (window.innerWidth < 768 ? 1800 : 850);
+        const startY = window.scrollY;
+        const diff = targetY - startY;
+        let startTime = null;
+
+        function step(currentTime) {
+          if (!startTime) startTime = currentTime;
+          const progress = Math.min((currentTime - startTime) / duration, 1);
+
+          // Curva di accelerazione/decelerazione molto morbida
+          const ease =
+            progress < 0.5
+              ? 4 * progress * progress * progress
+              : 1 - Math.pow(-2 * progress + 2, 3) / 2;
+
+          window.scrollTo(0, startY + diff * ease);
+          if (progress < 1) requestAnimationFrame(step);
+        }
+        requestAnimationFrame(step);
+      }
+
+      document.querySelectorAll('a[href^="#"]').forEach((link) => {
+        link.addEventListener("click", function (e) {
+          const targetId = this.getAttribute("href");
+          e.preventDefault();
+
+          closeMobileMenu();
+
+          if (targetId === "#" || targetId === "#home") {
+            smoothScrollTo(0);
+            return;
+          }
+
+          // SOLO SU MOBILE (< 768px): per "Taverne & Mappa" punta direttamente al box mappa+scheda
+          // Su desktop (>= 768px) salta questo blocco e centra normalmente la sezione con il titolo
+          if (targetId === "#taverne-mappa" && window.innerWidth < 768) {
+            const mapWrapper =
+              document.getElementById("mappa-interattiva-box") ||
+              document.querySelector("#taverne-mappa .grid > div:first-child");
+
+            if (mapWrapper) {
+              const targetY =
+                mapWrapper.getBoundingClientRect().top + window.scrollY - 72;
+              smoothScrollTo(targetY);
+              return;
+            }
+          }
+
+          // Comportamento standard (usato per tutte le sezioni e per "Taverne & Mappa" su desktop)
+          const targetEl = document.querySelector(targetId);
+          if (targetEl) {
+            const headerOffset = window.innerWidth < 768 ? 68 : 80;
+            const targetY =
+              targetEl.getBoundingClientRect().top +
+              window.scrollY -
+              headerOffset;
+            smoothScrollTo(targetY);
+          }
+        });
+      });
+
+      if ("scrollRestoration" in history) {
+        history.scrollRestoration = "manual";
+      }
+      window.scrollTo(0, 0);
+    </script>
+  </body>
+</html>
